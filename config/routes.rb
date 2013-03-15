@@ -1,4 +1,6 @@
 Simdot::Application.routes.draw do
+  resources :interfaces
+
   resources :systems
 
   resources :datasets

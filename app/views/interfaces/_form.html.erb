@@ -1,0 +1,25 @@
+<%= form_for(@interface) do |f| %>
+  <% if @interface.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@interface.errors.count, "error") %> prohibited this interface from being saved:</h2>
+
+      <ul>
+      <% @interface.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :from_system_id %><br />
+    <%= f.number_field :from_system_id %>
+  </div>
+  <div class="field">
+    <%= f.label :to_system_id %><br />
+    <%= f.number_field :to_system_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
