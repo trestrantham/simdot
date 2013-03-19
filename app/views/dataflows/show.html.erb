@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dataset:</strong>
+  <%= @dataflow.dataset_id %>
+</p>
+
+<p>
+  <strong>Interface:</strong>
+  <%= @dataflow.interface_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_dataflow_path(@dataflow) %> |
+<%= link_to 'Back', dataflows_path %>

@@ -1,0 +1,29 @@
+<h1>Listing dataflows</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dataset</th>
+      <th>Interface</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dataflows.each do |dataflow| %>
+    <tr>
+      <td><%= dataflow.dataset_id %></td>
+      <td><%= dataflow.interface_id %></td>
+      <td><%= link_to 'Show', dataflow %></td>
+      <td><%= link_to 'Edit', edit_dataflow_path(dataflow) %></td>
+      <td><%= link_to 'Destroy', dataflow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Dataflow', new_dataflow_path %>
