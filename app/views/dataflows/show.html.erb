@@ -2,7 +2,7 @@
 
 <p>
   <strong>Dataset:</strong>
-  <%= @dataflow.dataset_id %>
+  <%= @dataflow.dataset.name %>
 </p>
 
 <p>
@@ -10,6 +10,10 @@
   <%= @dataflow.interface_id %>
 </p>
 
+<p>
+  <strong>Frequency:</strong>
+  <%= @dataflow.frequency.name %>
+</p>
 
 <%= link_to 'Edit', edit_dataflow_path(@dataflow) %> |
 <%= link_to 'Back', dataflows_path %>

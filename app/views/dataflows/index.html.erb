@@ -5,6 +5,7 @@
     <tr>
       <th>Dataset</th>
       <th>Interface</th>
+      <th>Frequency</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,8 +15,9 @@
   <tbody>
     <% @dataflows.each do |dataflow| %>
     <tr>
-      <td><%= dataflow.dataset_id %></td>
+      <td><%= dataflow.dataset.name %></td>
       <td><%= dataflow.interface_id %></td>
+      <td><%= dataflow.frequency.name %></td>
       <td><%= link_to 'Show', dataflow %></td>
       <td><%= link_to 'Edit', edit_dataflow_path(dataflow) %></td>
       <td><%= link_to 'Destroy', dataflow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
