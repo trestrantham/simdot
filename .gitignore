@@ -15,4 +15,4 @@
 /log/*.log
 /tmp
 
-app/helpers/interfaces_helper.rb
+public/**
