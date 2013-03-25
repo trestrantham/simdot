@@ -1,19 +1,25 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Dataflow -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <strong>Dataset:</strong>
-  <%= @dataflow.dataset.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:dataset_id) %>:</strong></dt>
+  <dd><%= @dataflow.dataset_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:interface_id) %>:</strong></dt>
+  <dd><%= @dataflow.interface_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:frequency_id) %>:</strong></dt>
+  <dd><%= @dataflow.frequency_id %></dd>
+</dl>
 
-<p>
-  <strong>Interface:</strong>
-  <%= @dataflow.interface_id %>
-</p>
-
-<p>
-  <strong>Frequency:</strong>
-  <%= @dataflow.frequency.name %>
-</p>
-
-<%= link_to 'Edit', edit_dataflow_path(@dataflow) %> |
-<%= link_to 'Back', dataflows_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              dataflows_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_dataflow_path(@dataflow), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              dataflow_path(@dataflow),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

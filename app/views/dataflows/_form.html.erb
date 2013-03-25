@@ -1,29 +1,10 @@
-<%= form_for(@dataflow) do |f| %>
-  <% if @dataflow.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@dataflow.errors.count, "error") %> prohibited this dataflow from being saved:</h2>
-
-      <ul>
-      <% @dataflow.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :dataset_id %><br />
-    <%= f.number_field :dataset_id %>
-  </div>
-  <div class="field">
-    <%= f.label :interface_id %><br />
-    <%= f.number_field :interface_id %>
-  </div>
-  <div class="field">
-    <%= f.label :frequency_id %><br />
-    <%= f.number_field :frequency_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+<%= simple_form_for @dataflow, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :dataset_id %>
+  <%= f.input :interface_id %>
+  <%= f.input :frequency_id %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                dataflows_path, :class => 'btn' %>
   </div>
 <% end %>

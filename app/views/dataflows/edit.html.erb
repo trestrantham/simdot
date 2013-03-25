@@ -1,6 +1,5 @@
-<h1>Editing dataflow</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @dataflow %> |
-<%= link_to 'Back', dataflows_path %>
+<%- model_class = Dataflow -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human %></h1>
+</div>
+<%= render :partial => 'form' %>
