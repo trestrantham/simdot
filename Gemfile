@@ -40,8 +40,15 @@ end
 # Deploy with Capistrano
 # gem 'capistrano', group: :development
 
-# To use debugger
-# gem 'debugger'
 group :development do
   gem 'rails-erd'
 end
+
+group :test, :development do
+  gem 'rspec-rails', '~> 2.0'
+  gem 'capybara', '~> 2.0'
+  gem 'factory_girl_rails'
+  gem 'debugger'
+end
+
+gem 'simple_form'
