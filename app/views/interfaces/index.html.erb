@@ -16,8 +16,8 @@
     <% @interfaces.each do |interface| %>
       <tr>
         <td><%= link_to interface.id, interface_path(interface) %></td>
-        <td><%= interface.from_system_id %></td>
-        <td><%= interface.to_system_id %></td>
+        <td><%= interface.from_system.name %></td>
+        <td><%= interface.to_system.name %></td>
         <td><%=l interface.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

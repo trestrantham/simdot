@@ -7,7 +7,8 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:dataset_id) %></th>
-      <th><%= model_class.human_attribute_name(:interface_id) %></th>
+      <th><%= model_class.human_attribute_name(:from_system) %></th>
+      <th><%= model_class.human_attribute_name(:to_system) %></th>
       <th><%= model_class.human_attribute_name(:frequency_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -17,9 +18,10 @@
     <% @dataflows.each do |dataflow| %>
       <tr>
         <td><%= link_to dataflow.id, dataflow_path(dataflow) %></td>
-        <td><%= dataflow.dataset_id %></td>
-        <td><%= dataflow.interface_id %></td>
-        <td><%= dataflow.frequency_id %></td>
+        <td><%= dataflow.dataset.name %></td>
+        <td><%= dataflow.interface.from_system.name %></td>
+        <td><%= dataflow.interface.to_system.name %></td>
+        <td><%= dataflow.frequency.name %></td>
         <td><%=l dataflow.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

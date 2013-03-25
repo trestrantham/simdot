@@ -5,11 +5,11 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:dataset_id) %>:</strong></dt>
-  <dd><%= @dataflow.dataset_id %></dd>
+  <dd><%= @dataflow.dataset.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:interface_id) %>:</strong></dt>
   <dd><%= @dataflow.interface_id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:frequency_id) %>:</strong></dt>
-  <dd><%= @dataflow.frequency_id %></dd>
+  <dd><%= @dataflow.frequency.name %></dd>
 </dl>
 
 <div class="form-actions">
