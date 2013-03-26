@@ -54,3 +54,4 @@ group :test, :development do
 end
 
 gem 'simple_form'
+gem 'papertrail'
