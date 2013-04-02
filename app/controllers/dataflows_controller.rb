@@ -69,6 +69,6 @@ class DataflowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dataflow_params
-      params.require(:dataflow).permit(:dataset_id, :interface_id)
+      params.require(:dataflow).permit(:dataset_id, :interface_id, :frequency_id)
     end
 end
