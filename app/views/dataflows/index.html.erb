@@ -2,13 +2,13 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
-<table class="table table-striped">
+<table class="table table-striped "data-provides="rowlink">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:dataset_id) %></th>
-      <th><%= model_class.human_attribute_name(:from_system) %></th>
-      <th><%= model_class.human_attribute_name(:to_system) %></th>
+      <th><%= model_class.human_attribute_name(:source_system) %></th>
+      <th><%= model_class.human_attribute_name(:target_system) %></th>
       <th><%= model_class.human_attribute_name(:frequency_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -19,8 +19,8 @@
       <tr>
         <td><%= link_to dataflow.id, dataflow_path(dataflow) %></td>
         <td><%= dataflow.dataset.name %></td>
-        <td><%= dataflow.interface.from_system.name %></td>
-        <td><%= dataflow.interface.to_system.name %></td>
+        <td><%= dataflow.interface.source_system.name %></td>
+        <td><%= dataflow.interface.target_system.name %></td>
         <td><%= dataflow.frequency.name %></td>
         <td><%=l dataflow.created_at %></td>
         <td>
