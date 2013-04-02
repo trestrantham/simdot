@@ -19,3 +19,103 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 </div>
+
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#source-interfaces" data-toggle="tab">Source Interfaces</a></li>
+    <li><a href="#target-interfaces" data-toggle="tab">Target Interfaces</a></li>
+    <li><a href="#datasets" data-toggle="tab">Datasets</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="source-interfaces">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th><%= model_class.human_attribute_name(:id) %></th>
+            <th><%= model_class.human_attribute_name(:source_system_id) %></th>
+            <th><%= model_class.human_attribute_name(:target_system_id) %></th>
+            <th><%=t '.actions', :default => t("helpers.actions") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @system.target_interfaces.each do |interface| %>
+            <tr>
+              <td><%= link_to interface.id, interface_path(interface) %></td>
+              <td><%= interface.source_system.name %></td>
+              <td><%= interface.target_system.name %></td>
+              <td>
+                <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                            edit_interface_path(interface), :class => 'btn btn-mini' %>
+                <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                            interface_path(interface),
+                            :method => :delete,
+                            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                            :class => 'btn btn-mini btn-danger' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="tab-pane" id="target-interfaces">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th><%= model_class.human_attribute_name(:id) %></th>
+            <th><%= model_class.human_attribute_name(:source_system_id) %></th>
+            <th><%= model_class.human_attribute_name(:target_system_id) %></th>
+            <th><%=t '.actions', :default => t("helpers.actions") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @system.source_interfaces.each do |interface| %>
+            <tr>
+              <td><%= link_to interface.id, interface_path(interface) %></td>
+              <td><%= interface.source_system.name %></td>
+              <td><%= interface.target_system.name %></td>
+              <td>
+                <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                            edit_interface_path(interface), :class => 'btn btn-mini' %>
+                <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                            interface_path(interface),
+                            :method => :delete,
+                            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                            :class => 'btn btn-mini btn-danger' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="tab-pane" id="datasets">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th><%= model_class.human_attribute_name(:id) %></th>
+            <th><%= model_class.human_attribute_name(:name) %></th>
+            <th><%= model_class.human_attribute_name(:description) %></th>
+            <th><%=t '.actions', :default => t("helpers.actions") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @system.all_dataflows.collect(&:dataset).each do |dataset| %>
+            <tr>
+              <td><%= link_to dataset.id, dataset_path(dataset) %></td>
+              <td><%= dataset.name %></td>
+              <td><%= dataset.description %></td>
+              <td>
+                <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                            edit_dataset_path(dataset), :class => 'btn btn-mini' %>
+                <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                            dataset_path(dataset),
+                            :method => :delete,
+                            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                            :class => 'btn btn-mini btn-danger' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
