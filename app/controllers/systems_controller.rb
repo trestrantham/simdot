@@ -5,6 +5,7 @@ class SystemsController < ApplicationController
   # GET /systems.json
   def index
     @systems = System.all
+    @systems_yuml = to_yuml(@systems)
   end
 
   # GET /systems/1
@@ -70,5 +71,15 @@ class SystemsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def system_params
       params.require(:system).permit(:name)
+    end
+
+    def to_yuml(systems)
+      parts = []
+
+      systems.collect(&:all_interfaces).flatten.uniq.each do |interface|
+        parts << "[#{interface.source_system.name}]-^[#{interface.target_system.name}]"
+      end
+
+      parts.join(",")
     end
 end
