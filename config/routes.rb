@@ -1,4 +1,8 @@
 Simdot::Application.routes.draw do
+  resources :categories
+
+  resources :contexts
+
   resources :frequencies
 
   resources :dataflows
