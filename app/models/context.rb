@@ -1,5 +1,5 @@
 class Context < ActiveRecord::Base
   has_many :categories
 
-  validates_uniqueness_of :name
+  validates :name, uniqueness: true, presence: true
 end
