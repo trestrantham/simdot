@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :system do
-    sequence(:name) { |n| "System #{n}" }
+    name "System #{Faker::Company.bs}"
   end
 end

@@ -39,6 +39,7 @@ group :test, :development do
   gem 'capybara', '~> 2.0'
   gem 'factory_girl_rails'
   gem 'guard-rspec'
+  gem 'faker'
 end
 
 gem 'simple_form'
