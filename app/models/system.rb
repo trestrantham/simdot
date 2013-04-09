@@ -8,7 +8,7 @@ class System < ActiveRecord::Base
   has_many :context_maps, as: :contextable
   has_many :contexts, through: :context_maps
 
-  validates_uniqueness_of :name
+  validates :name, uniqueness: true, presence: true
 
   def all_interfaces
     (source_interfaces + target_interfaces).uniq
